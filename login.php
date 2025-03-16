@@ -78,7 +78,8 @@ if(isset($_POST['register']))
     {
      $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
      $verification_code=bin2hex(random_bytes(16));
-$query = "INSERT INTO `registered_users` (`name`, `email`, `password`, `gender`, `state`, `district`, `verification_code`, `is_verified`) VALUES ('{$_POST['full-name']}','{$_POST['email']}','{$password}','{$_POST['gender']}','{$_POST['state']}','{$_POST['district']}', '{$verification_code}', '0')";
+     $query = " INSERT INTO `registered_users` (`name`, `email`, `password`, `gender`, `state`, `district`, `verification_code`, `is_verified`) 
+                VALUES ('{$_POST['full-name']}','{$_POST['email']}','{$password}','{$_POST['gender']}','{$_POST['state']}','{$_POST['district']}', '{$verification_code}', '0')";
 
       if(mysqli_query($conn, $query) && sendMail($_POST['email'],$verification_code)) // send query along with email function and verification code
       {

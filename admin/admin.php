@@ -740,7 +740,7 @@ if ($selectUserStmt) {
                         <form method="post" action="functions/insert-admin-message.php" style="display: inline;">
                             <div class="form-group">
                                 <?php
-                                $adminMessageQuery = "SELECT `id`, `message`, `enable_meessage` FROM `admin_message` WHERE 1";
+                                $adminMessageQuery = "SELECT `id`, `message`, `enable_message` FROM `admin_message` WHERE 1";
                                 $adminMessageResult = mysqli_query($conn, $adminMessageQuery);
 
                                 if ($adminMessageResult) {
@@ -748,8 +748,8 @@ if ($selectUserStmt) {
 
                                     echo "<b>Current admin message: </b><p>" . $adminMessageData['message'] . "</p>";
 
-                                    $statusColor = ($adminMessageData['enable_meessage'] == 1) ? 'green' : 'red';
-                                    $statusText = ($adminMessageData['enable_meessage'] == 1) ? 'Enabled' : 'Disabled';
+                                    $statusColor = ($adminMessageData['enable_message'] == 1) ? 'green' : 'red';
+                                    $statusText = ($adminMessageData['enable_message'] == 1) ? 'Enabled' : 'Disabled';
 
                                     echo "<p style='color: $statusColor;'>Admin Message is currently $statusText</p>";
 

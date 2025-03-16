@@ -15,14 +15,14 @@ session_start();
           require_once "includes/connection.php";
 
           // Fetch the admin message data
-          $adminMessageQuery = "SELECT `id`, `message`, `enable_meessage` FROM `admin_message` WHERE 1";
+          $adminMessageQuery = "SELECT `id`, `message`, `enable_message` FROM `admin_message` WHERE 1";
           $adminMessageResult = mysqli_query($conn, $adminMessageQuery);
 
           if ($adminMessageResult) {
               $adminMessageData = mysqli_fetch_assoc($adminMessageResult);
 
               // Check if the enable_meessage is 1
-              if ($adminMessageData['enable_meessage'] == 1) {
+              if ($adminMessageData['enable_message'] == 1) {
                   // Display the message using marquee
                   echo "<marquee style='color:green'>" . htmlspecialchars($adminMessageData['message']) . "</marquee>";
               } else {
